@@ -4,21 +4,16 @@
 #define TRUE  1
 
 int main(void) {
-    int nc = 0, nw = 0, nl = 0, in_word = 0;
-
+    int in_word = FALSE;
     for(int c = getchar(); c != EOF; c = getchar()) {
-        nc++;
-
-        if(c == '\n')
-            nl++;
-
         if(c == ' ' || c == '\t' || c == '\n') {
+            if(in_word) {
+                putchar('\n');
+            }
             in_word = FALSE;
-        }
-        else if(!in_word) {
-            nw++;
+        } else {
+            putchar(c);
             in_word = TRUE;
         }
     }
-    printf("%8d%8d%8d\n", nl, nw, nc);
 }
