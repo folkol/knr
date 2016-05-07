@@ -10,9 +10,8 @@ int main(void) {
         nc++;
         if(c == '\n') {
             nl++;
-            in_word = FALSE;
         }
-        else if(c == ' ' || c == '\t') {
+        if(c == ' ' || c == '\t' || c == '\n') {
             in_word = FALSE;
         }
         else if(!in_word) {
